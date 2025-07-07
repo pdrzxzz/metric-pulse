@@ -7,7 +7,7 @@
 
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: #fff;
     min-height: 100vh;
     color: #333;
     line-height: 1.6;
@@ -21,32 +21,128 @@ body {
 
 /* Header styles */
 header {
-    text-align: center;
     margin-bottom: 40px;
-    color: white;
+    color: #22223b;
+    background: #fff;
+    padding: 24px 0 18px 0;
+    box-shadow: 0 4px 24px rgba(34, 34, 59, 0.04);
+}
+
+.header-content {
     display: flex;
-    flex-direction: column;
+    justify-content: space-between;
     align-items: center;
-    gap: 15px;
+    gap: 20px;
+}
+
+.header-left {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 28px;
+}
+
+.header-right {
+    display: flex;
+    align-items: center;
+}
+
+.metricpulse-title {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    font-family: 'Segoe UI', 'Montserrat', 'Arial', sans-serif;
+    font-weight: 800;
+    font-size: 2.8rem;
+    line-height: 1;
+    letter-spacing: -1px;
+    white-space: nowrap;
+}
+
+.metric-text {
+    color: #22223b;
+}
+
+.pulse-text {
+    color: #20bfcf;
 }
 
 .logo {
-    max-width: 400px;
-    height: auto;
-    filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.3));
+    height: 60px;
+    width: auto;
+    max-width: none;
+    filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.10));
     transition: all 0.3s ease;
 }
 
 .logo:hover {
-    filter: drop-shadow(3px 3px 6px rgba(0, 0, 0, 0.4));
-    transform: scale(1.02);
+    filter: drop-shadow(3px 3px 6px rgba(0, 0, 0, 0.18));
+    transform: scale(1.04);
 }
 
-.subtitle {
-    font-size: 1.2rem;
-    opacity: 0.9;
-    font-style: italic;
-    margin-top: 5px;
+/* GitHub Button */
+.github-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 20px;
+    border: 3px solid #fff;
+    border-radius: 25px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    font-weight: bold;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    position: relative;
+    overflow: hidden;
+    font-size: 0.9rem;
+}
+
+.github-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
+            rgba(255, 255, 255, 0.2) 0%,
+            transparent 60%);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    pointer-events: none;
+}
+
+.github-btn:hover {
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+    background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
+    transform: scale(1.05);
+    color: white;
+    text-decoration: none;
+}
+
+.github-btn:hover::before {
+    opacity: 1;
+}
+
+.github-btn:active {
+    transform: scale(0.98);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.github-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 20px;
+}
+
+.github-icon svg {
+    display: block;
+    width: 20px;
+    height: 20px;
 }
 
 /* Section styles */
@@ -328,45 +424,35 @@ section h2 {
     font-weight: bold;
 }
 
-
-
-/* Footer */
-footer {
-    text-align: center;
-    margin-top: 40px;
-    padding: 20px;
-    color: white;
-}
-
-.footer-links {
-    display: flex;
-    justify-content: center;
-    gap: 30px;
-    flex-wrap: wrap;
-}
-
-.footer-link {
-    color: white;
-    text-decoration: none;
-    padding: 10px 15px;
-    border-radius: 25px;
-    background: rgba(255, 255, 255, 0.1);
-    transition: all 0.3s ease;
-}
-
-.footer-link:hover {
-    background: rgba(255, 255, 255, 0.2);
-    box-shadow: 0 4px 12px rgba(255, 255, 255, 0.3);
-}
-
 /* Responsive Design */
 @media (max-width: 768px) {
     .container {
         padding: 15px;
     }
 
+    .header-content {
+        flex-direction: column;
+        gap: 15px;
+        text-align: center;
+    }
+
+    .header-left {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
+
     .logo {
-        max-width: 280px;
+        height: 44px;
+    }
+
+    .metricpulse-title {
+        font-size: 2rem;
+    }
+
+    .github-btn {
+        padding: 8px 16px;
+        font-size: 0.8rem;
     }
 
     section {
@@ -386,11 +472,6 @@ footer {
     .metrics-grid {
         grid-template-columns: repeat(2, 1fr);
         gap: 10px;
-    }
-
-    .footer-links {
-        flex-direction: column;
-        gap: 15px;
     }
 
     .chart-container {
@@ -500,4 +581,9 @@ footer {
     visibility: visible;
     opacity: 1;
     transform: translateY(-5px);
+}
+
+/* Remove subtitle and extended_logo styles if present */
+.subtitle {
+    display: none !important;
 }
