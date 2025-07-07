@@ -27,19 +27,11 @@ class MetricPulseApp {
     }
 
     addHelpTooltips() {
-        // Add tooltips to key elements
+        // Add tooltips to key elements (excluding metric cards since they have custom tooltips)
         const tooltipElements = [
             {
                 selector: '.threshold-slider',
                 text: 'Drag to adjust the classification threshold and see how it affects model performance'
-            },
-            {
-                selector: '.metric-card',
-                text: 'These metrics update in real-time as you adjust the threshold'
-            },
-            {
-                selector: '.confusion-table',
-                text: 'Shows the distribution of predictions vs actual values at the current threshold'
             },
             {
                 selector: '#trendsChart',
@@ -150,7 +142,6 @@ class MetricPulseApp {
         actionsContainer.innerHTML = `
             <button id="optimalBtn" class="action-btn">🎯 Find Optimal</button>
             <button id="resetBtn" class="action-btn">🔄 Reset</button>
-            <button id="helpBtn" class="action-btn">❓ Help</button>
         `;
 
         // Insert after the threshold control section
@@ -162,7 +153,6 @@ class MetricPulseApp {
         // Add event listeners
         document.getElementById('optimalBtn')?.addEventListener('click', () => this.findOptimalThreshold());
         document.getElementById('resetBtn')?.addEventListener('click', () => this.resetToDefault());
-        document.getElementById('helpBtn')?.addEventListener('click', () => this.showKeyboardShortcuts());
 
         // Add CSS for quick actions
         this.addQuickActionsCSS();
