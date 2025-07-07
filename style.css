@@ -365,8 +365,16 @@ footer {
         transform: scale(1);
     }
 
+    25% {
+        transform: scale(1.08);
+    }
+
     50% {
         transform: scale(1.05);
+    }
+
+    75% {
+        transform: scale(1.02);
     }
 
     100% {
@@ -375,7 +383,8 @@ footer {
 }
 
 .metric-value.updated {
-    animation: pulse 0.5s ease;
+    animation: pulse 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    transform-origin: center center;
 }
 
 /* Loading state */
