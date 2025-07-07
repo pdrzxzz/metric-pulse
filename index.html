@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MetricPulse - ML Threshold Explorer</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1>🧪 METRICPULSE - ML THRESHOLD EXPLORER</h1>
+            <p class="subtitle">"Visualize how classification threshold affects model metrics"</p>
+        </header>
+
+        <main>
+            <!-- Threshold Control Section -->
+            <section class="threshold-control">
+                <h2>🎚️ THRESHOLD CONTROL</h2>
+                <div class="slider-container">
+                    <input type="range" id="thresholdSlider" min="0" max="1" step="0.01" value="0.5"
+                        class="threshold-slider">
+                    <div class="slider-labels">
+                        <span>0.00</span>
+                        <span id="currentThreshold">0.50</span>
+                        <span>1.00</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Live Metrics Section -->
+            <section class="live-metrics">
+                <h2>📊 LIVE METRICS</h2>
+                <div class="metrics-grid">
+                    <div class="metric-card">
+                        <h3>Precision</h3>
+                        <div class="metric-value" id="precisionValue">0.81</div>
+                    </div>
+                    <div class="metric-card">
+                        <h3>Recall</h3>
+                        <div class="metric-value" id="recallValue">0.74</div>
+                    </div>
+                    <div class="metric-card">
+                        <h3>F1-score</h3>
+                        <div class="metric-value" id="f1Value">0.77</div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Metric Trends Chart Section -->
+            <section class="metric-trends">
+                <h2>📈 METRIC TRENDS CHART</h2>
+                <div class="chart-container">
+                    <canvas id="trendsChart"></canvas>
+                </div>
+            </section>
+
+            <!-- Confusion Matrix Section -->
+            <section class="confusion-matrix">
+                <h2>📉 CONFUSION MATRIX</h2>
+                <div class="matrix-container">
+                    <table class="confusion-table">
+                        <thead>
+                            <tr>
+                                <th></th>
+                                <th>Pred 0</th>
+                                <th>Pred 1</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Actual 0</strong></td>
+                                <td id="tn">35</td>
+                                <td id="fp">10</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Actual 1</strong></td>
+                                <td id="fn">12</td>
+                                <td id="tp">43</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- Key Formulas Section -->
+            <section class="key-formulas">
+                <h2>💡 KEY FORMULAS</h2>
+                <div class="formulas-grid">
+                    <div class="formula">
+                        <strong>Precision</strong> = TP / (TP + FP)
+                    </div>
+                    <div class="formula">
+                        <strong>Recall</strong> = TP / (TP + FN)
+                    </div>
+                    <div class="formula">
+                        <strong>F1</strong> = 2 × (Precision × Recall) / (Precision + Recall)
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <div class="footer-links">
+                <a href="#" class="footer-link">[GitHub Repo]</a>
+                <a href="#" class="footer-link">[MIT License]</a>
+                <a href="#" class="footer-link">[Your Name]</a>
+            </div>
+        </footer>
+    </div>
+
+    <script src="data.js"></script>
+    <script src="metrics.js"></script>
+    <script src="chart.js"></script>
+    <script src="main.js"></script>
+</body>
+
+</html>
