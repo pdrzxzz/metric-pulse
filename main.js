@@ -241,7 +241,7 @@ class MetricPulseApp {
     }
 
     setupMouseTracking() {
-        const cards = document.querySelectorAll('.metric-card, .action-btn');
+        const cards = document.querySelectorAll('.metric-card, .action-btn, .github-btn');
         const slider = document.querySelector('.threshold-slider');
 
         cards.forEach(card => {

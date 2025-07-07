@@ -158,9 +158,7 @@ header {
     left: 0;
     right: 0;
     bottom: 0;
-    background: radial-gradient(circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
-            rgba(255, 255, 255, 0.2) 0%,
-            transparent 60%);
+    background: radial-gradient(circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(255, 255, 255, 0.2) 0%, transparent 60%);
     opacity: 0;
     transition: opacity 0.4s ease;
     pointer-events: none;
@@ -479,6 +477,7 @@ section h2 {
     background: var(--card-bg) !important;
     color: var(--text) !important;
     font-weight: bold;
+    transition: background 0.3s, color 0.3s;
 }
 
 /* Responsive Design */
@@ -690,4 +689,36 @@ section h2 {
         width: 38px;
         padding: 8px 12px;
     }
+}
+
+/* Action button dark mode consistency */
+.dark-theme .action-btn {
+    background: var(--github-btn-bg);
+    color: white;
+    border: none;
+}
+
+.dark-theme .action-btn:hover {
+    background: var(--github-btn-bg-hover);
+    color: white;
+}
+
+.dark-theme .action-btn::before {
+    background: radial-gradient(circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(255, 255, 255, 0.2) 0%, transparent 60%);
+}
+
+.dark-theme .box-title,
+.dark-theme .metric-value,
+.dark-theme .metric-card h3,
+.dark-theme .metric-text,
+.dark-theme .pulse-text {
+    color: #fff !important;
+}
+
+.dark-theme .confusion-table th {
+    color: #fff;
+}
+
+.dark-theme .confusion-table td:not(:first-child) {
+    color: #fff !important;
 }
