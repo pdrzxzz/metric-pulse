@@ -187,17 +187,40 @@ class MetricPulseApp {
                 color: white;
                 font-weight: bold;
                 cursor: pointer;
-                transition: all 0.3s ease;
-                box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+                transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+                box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+                position: relative;
+                overflow: hidden;
+            }
+            
+            .action-btn::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                background: radial-gradient(circle at var(--mouse-x, 50%) var(--mouse-y, 50%), 
+                            rgba(255, 255, 255, 0.2) 0%, 
+                            transparent 60%);
+                opacity: 0;
+                transition: opacity 0.4s ease;
+                pointer-events: none;
             }
             
             .action-btn:hover {
-                box-shadow: 0 6px 12px rgba(0,0,0,0.3);
+                box-shadow: 0 8px 20px rgba(0,0,0,0.25);
                 background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
+                transform: scale(1.05);
+            }
+            
+            .action-btn:hover::before {
+                opacity: 1;
             }
             
             .action-btn:active {
-                box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+                transform: scale(0.98);
+                box-shadow: 0 2px 8px rgba(0,0,0,0.3);
             }
         `;
         document.head.appendChild(style);
@@ -222,6 +245,24 @@ class MetricPulseApp {
         if (window.MetricPulseChart) {
             window.MetricPulseChart.chart.options.animation.duration = 200;
         }
+
+        // Setup mouse tracking for hover effects
+        this.setupMouseTracking();
+    }
+
+    setupMouseTracking() {
+        const cards = document.querySelectorAll('.metric-card, .action-btn');
+
+        cards.forEach(card => {
+            card.addEventListener('mousemove', (e) => {
+                const rect = card.getBoundingClientRect();
+                const x = ((e.clientX - rect.left) / rect.width) * 100;
+                const y = ((e.clientY - rect.top) / rect.height) * 100;
+
+                card.style.setProperty('--mouse-x', `${x}%`);
+                card.style.setProperty('--mouse-y', `${y}%`);
+            });
+        });
     }
 
     // Method to export current metrics
