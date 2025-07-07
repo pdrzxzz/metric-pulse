@@ -6,11 +6,62 @@
 }
 
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: #fff;
+    --bg: #fff;
+    --text: #22223b;
+    --text-secondary: #333;
+    --accent: #20bfcf;
+    --header-bg: #fff;
+    --header-shadow: 0 4px 24px rgba(34, 34, 59, 0.04);
+    --card-bg: #fff;
+    --box-title: #667eea;
+    --metric: #22223b;
+    --pulse: #20bfcf;
+    --github-btn-bg: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    --github-btn-bg-hover: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
+    --github-btn-border: #fff;
+    --tooltip-bg: #fff;
+    --tooltip-text: #4a5568;
+    --tooltip-border: #667eea;
+    --confusion-th: #667eea;
+    --confusion-td: #4a5568;
+    --metric-card-bg: linear-gradient(135deg, #f7fafc 0%, #edf2f7 100%);
+    --metric-card-bg-hover: linear-gradient(135deg, #f0f4ff 0%, #e6f0ff 100%);
+    --metric-value: #667eea;
+    --border: #e2e8f0;
+    --shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    --box-shadow-hover: 0 15px 40px rgba(0, 0, 0, 0.15);
+    background: var(--bg);
+    color: var(--text-secondary);
     min-height: 100vh;
-    color: #333;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     line-height: 1.6;
+}
+
+.dark-theme {
+    --bg: #181926;
+    --text: #f3f3fa;
+    --text-secondary: #c9c9e3;
+    --accent: #20bfcf;
+    --header-bg: #23243a;
+    --header-shadow: 0 4px 24px rgba(0, 0, 0, 0.18);
+    --card-bg: #23243a;
+    --box-title: #7f9cf5;
+    --metric: #f3f3fa;
+    --pulse: #20bfcf;
+    --github-btn-bg: linear-gradient(135deg, #23243a 0%, #3a3a5d 100%);
+    --github-btn-bg-hover: linear-gradient(135deg, #3a3a5d 0%, #23243a 100%);
+    --github-btn-border: #fff;
+    --tooltip-bg: #23243a;
+    --tooltip-text: #e0e0f0;
+    --tooltip-border: #7f9cf5;
+    --confusion-th: #7f9cf5;
+    --confusion-td: #23243a;
+    --metric-card-bg: linear-gradient(135deg, #23243a 0%, #23243a 100%);
+    --metric-card-bg-hover: linear-gradient(135deg, #23243a 0%, #23243a 100%);
+    --metric-value: #7f9cf5;
+    --border: #35365a;
+    --shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+    --box-shadow-hover: 0 15px 40px rgba(0, 0, 0, 0.35);
 }
 
 .container {
@@ -22,10 +73,10 @@ body {
 /* Header styles */
 header {
     margin-bottom: 40px;
-    color: #22223b;
-    background: #fff;
+    color: var(--text);
+    background: none;
     padding: 24px 0 18px 0;
-    box-shadow: 0 4px 24px rgba(34, 34, 59, 0.04);
+    box-shadow: none;
 }
 
 .header-content {
@@ -60,11 +111,11 @@ header {
 }
 
 .metric-text {
-    color: #22223b;
+    color: var(--metric);
 }
 
 .pulse-text {
-    color: #20bfcf;
+    color: var(--pulse);
 }
 
 .logo {
@@ -86,9 +137,9 @@ header {
     align-items: center;
     gap: 8px;
     padding: 10px 20px;
-    border: 3px solid #fff;
+    border: none;
     border-radius: 25px;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: var(--github-btn-bg);
     color: white;
     font-weight: bold;
     text-decoration: none;
@@ -117,7 +168,7 @@ header {
 
 .github-btn:hover {
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
-    background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
+    background: var(--github-btn-bg-hover);
     transform: scale(1.05);
     color: white;
     text-decoration: none;
@@ -147,18 +198,18 @@ header {
 
 /* Section styles */
 section {
-    background: white;
+    background: var(--card-bg);
     border-radius: 15px;
     padding: 15px;
     margin-bottom: 30px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    box-shadow: var(--shadow);
     transition: all 0.5s ease;
-    border: 3px solid #e2e8f0;
+    border: 3px solid var(--border);
 }
 
 section:hover {
-    border-color: #667eea;
-    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+    border-color: var(--box-title);
+    box-shadow: var(--box-shadow-hover);
 }
 
 section h2 {
@@ -197,7 +248,7 @@ section h2 {
 .box-title {
     font-size: 0.9rem;
     font-weight: 600;
-    color: #667eea;
+    color: var(--box-title);
     text-transform: uppercase;
     letter-spacing: 0.5px;
     margin-bottom: 15px;
@@ -211,17 +262,17 @@ section h2 {
 /* Threshold Control */
 .threshold-control {
     text-align: center;
-    background: white;
+    background: var(--card-bg);
     border-radius: 15px;
     padding: 25px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    box-shadow: var(--shadow);
     transition: all 0.3s ease;
-    border: 2px solid #e2e8f0;
+    border: 2px solid var(--border);
 }
 
 .threshold-control:hover {
-    border-color: #667eea;
-    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+    border-color: var(--box-title);
+    box-shadow: var(--box-shadow-hover);
 }
 
 .slider-container {
@@ -294,17 +345,17 @@ section h2 {
 
 /* Live Metrics */
 .live-metrics {
-    background: white;
+    background: var(--card-bg);
     border-radius: 15px;
     padding: 25px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    box-shadow: var(--shadow);
     transition: all 0.3s ease;
-    border: 2px solid #e2e8f0;
+    border: 2px solid var(--border);
 }
 
 .live-metrics:hover {
-    border-color: #667eea;
-    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+    border-color: var(--box-title);
+    box-shadow: var(--box-shadow-hover);
 }
 
 .metrics-grid {
@@ -315,25 +366,25 @@ section h2 {
 }
 
 .metric-card {
-    background: linear-gradient(135deg, #f7fafc 0%, #edf2f7 100%);
+    background: var(--metric-card-bg);
     padding: 15px;
     border-radius: 10px;
     text-align: center;
-    border: 2px solid #e2e8f0;
+    border: 2px solid var(--border);
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     position: relative;
     overflow: visible;
 }
 
 .metric-card:hover {
-    border-color: #667eea;
+    border-color: var(--box-title);
     box-shadow: 0 12px 35px rgba(102, 126, 234, 0.25);
-    background: linear-gradient(135deg, #f0f4ff 0%, #e6f0ff 100%);
+    background: var(--metric-card-bg-hover);
     transform: scale(1.02);
 }
 
 .metric-card h3 {
-    color: #4a5568;
+    color: var(--text);
     margin-bottom: 15px;
     font-size: 1.1rem;
 }
@@ -341,23 +392,23 @@ section h2 {
 .metric-value {
     font-size: 1.8rem;
     font-weight: bold;
-    color: #667eea;
+    color: var(--metric-value);
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
 }
 
 /* Chart Container */
 .metric-trends {
-    background: white;
+    background: var(--card-bg);
     border-radius: 15px;
     padding: 25px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    box-shadow: var(--shadow);
     transition: all 0.3s ease;
-    border: 2px solid #e2e8f0;
+    border: 2px solid var(--border);
 }
 
 .metric-trends:hover {
-    border-color: #667eea;
-    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+    border-color: var(--box-title);
+    box-shadow: var(--box-shadow-hover);
 }
 
 .chart-container {
@@ -367,20 +418,20 @@ section h2 {
 
 /* Confusion Matrix */
 .confusion-matrix {
-    background: white;
+    background: var(--card-bg);
     border-radius: 15px;
     padding: 25px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    box-shadow: var(--shadow);
     transition: all 0.3s ease;
-    border: 2px solid #e2e8f0;
+    border: 2px solid var(--border);
     height: 400px;
     display: flex;
     flex-direction: column;
 }
 
 .confusion-matrix:hover {
-    border-color: #667eea;
-    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+    border-color: var(--box-title);
+    box-shadow: var(--box-shadow-hover);
 }
 
 .matrix-container {
@@ -409,7 +460,7 @@ section h2 {
 }
 
 .confusion-table th {
-    background: #667eea;
+    background: var(--confusion-th);
     color: white;
     font-weight: bold;
 }
@@ -419,8 +470,14 @@ section h2 {
 }
 
 .confusion-table td:first-child {
-    background: #4a5568;
-    color: white;
+    background: var(--box-title) !important;
+    color: white !important;
+    font-weight: bold;
+}
+
+.confusion-table td:not(:first-child) {
+    background: var(--card-bg) !important;
+    color: var(--text) !important;
     font-weight: bold;
 }
 
@@ -545,8 +602,8 @@ section h2 {
 .tooltip .tooltiptext {
     visibility: hidden;
     width: 280px;
-    background-color: white;
-    color: #4a5568;
+    background-color: var(--tooltip-bg);
+    color: var(--tooltip-text);
     text-align: left;
     border-radius: 8px;
     padding: 16px;
@@ -559,7 +616,7 @@ section h2 {
     transition: all 0.3s ease;
     font-size: 0.75rem;
     line-height: 1.4;
-    border: 2px solid #667eea;
+    border: 2px solid var(--tooltip-border);
     box-shadow: 0 8px 25px rgba(102, 126, 234, 0.2);
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     pointer-events: none;
@@ -574,7 +631,7 @@ section h2 {
     margin-left: -5px;
     border-width: 5px;
     border-style: solid;
-    border-color: #667eea transparent transparent transparent;
+    border-color: var(--tooltip-border) transparent transparent transparent;
 }
 
 .question-mark:hover+.tooltiptext {
@@ -586,4 +643,51 @@ section h2 {
 /* Remove subtitle and extended_logo styles if present */
 .subtitle {
     display: none !important;
+}
+
+.theme-toggle-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: transparent;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 10px 16px;
+    border-radius: 50%;
+    margin-right: 12px;
+    transition: background 0.2s;
+    position: relative;
+    height: 44px;
+    width: 44px;
+}
+
+.theme-toggle-btn:hover {
+    background: rgba(102, 126, 234, 0.08);
+}
+
+.theme-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 22px;
+    width: 22px;
+    color: var(--box-title);
+    transition: opacity 0.2s;
+}
+
+.theme-icon svg {
+    width: 22px;
+    height: 22px;
+    display: block;
+}
+
+@media (max-width: 768px) {
+    .theme-toggle-btn {
+        margin-right: 0;
+        margin-bottom: 8px;
+        height: 38px;
+        width: 38px;
+        padding: 8px 12px;
+    }
 }
