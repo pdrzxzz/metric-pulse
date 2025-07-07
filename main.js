@@ -192,12 +192,12 @@ class MetricPulseApp {
             }
             
             .action-btn:hover {
-                transform: translateY(-2px);
                 box-shadow: 0 6px 12px rgba(0,0,0,0.3);
+                background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
             }
             
             .action-btn:active {
-                transform: translateY(0);
+                box-shadow: 0 2px 4px rgba(0,0,0,0.3);
             }
         `;
         document.head.appendChild(style);
