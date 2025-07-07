@@ -252,6 +252,7 @@ class MetricPulseApp {
 
     setupMouseTracking() {
         const cards = document.querySelectorAll('.metric-card, .action-btn');
+        const slider = document.querySelector('.threshold-slider');
 
         cards.forEach(card => {
             card.addEventListener('mousemove', (e) => {
@@ -263,6 +264,18 @@ class MetricPulseApp {
                 card.style.setProperty('--mouse-y', `${y}%`);
             });
         });
+
+        // Setup slider thumb mouse tracking
+        if (slider) {
+            slider.addEventListener('mousemove', (e) => {
+                const rect = slider.getBoundingClientRect();
+                const x = ((e.clientX - rect.left) / rect.width) * 100;
+                const y = ((e.clientY - rect.top) / rect.height) * 100;
+
+                slider.style.setProperty('--mouse-x', `${x}%`);
+                slider.style.setProperty('--mouse-y', `${y}%`);
+            });
+        }
     }
 
     // Method to export current metrics
