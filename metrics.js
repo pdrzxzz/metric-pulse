@@ -61,6 +61,12 @@ class MetricsManager {
         if (f1Element) {
             this.animateValueChange(f1Element, this.metrics.f1);
         }
+
+        // Update accuracy
+        const accuracyElement = document.getElementById('accuracyValue');
+        if (accuracyElement) {
+            this.animateValueChange(accuracyElement, this.metrics.accuracy);
+        }
     }
 
     updateConfusionMatrix() {

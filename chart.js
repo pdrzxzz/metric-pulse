@@ -64,6 +64,17 @@ class ChartManager {
                         pointHoverRadius: 6
                     },
                     {
+                        label: 'Accuracy',
+                        data: trendsData.accuracy,
+                        borderColor: '#9f7aea',
+                        backgroundColor: 'rgba(159, 122, 234, 0.1)',
+                        borderWidth: 3,
+                        fill: false,
+                        tension: 0.4,
+                        pointRadius: 0,
+                        pointHoverRadius: 6
+                    },
+                    {
                         label: 'Current Point',
                         data: [],
                         borderColor: '#e53e3e',

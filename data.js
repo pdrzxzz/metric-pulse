@@ -49,15 +49,17 @@ function getConfusionMatrix(threshold) {
 // Function to calculate metrics for a given threshold
 function calculateMetrics(threshold) {
     const { tp, tn, fp, fn } = getConfusionMatrix(threshold);
-
+    
     const precision = tp + fp > 0 ? tp / (tp + fp) : 0;
     const recall = tp + fn > 0 ? tp / (tp + fn) : 0;
     const f1 = precision + recall > 0 ? 2 * (precision * recall) / (precision + recall) : 0;
-
+    const accuracy = (tp + tn) / (tp + tn + fp + fn);
+    
     return {
         precision: Math.round(precision * 100) / 100,
         recall: Math.round(recall * 100) / 100,
         f1: Math.round(f1 * 100) / 100,
+        accuracy: Math.round(accuracy * 100) / 100,
         tp, tn, fp, fn
     };
 }
@@ -68,22 +70,25 @@ function generateTrendsData() {
     const precisionData = [];
     const recallData = [];
     const f1Data = [];
-
+    const accuracyData = [];
+    
     // Generate data points for thresholds from 0 to 1
     for (let threshold = 0; threshold <= 1; threshold += 0.01) {
         const metrics = calculateMetrics(threshold);
-
+        
         thresholds.push(threshold);
         precisionData.push(metrics.precision);
         recallData.push(metrics.recall);
         f1Data.push(metrics.f1);
+        accuracyData.push(metrics.accuracy);
     }
-
+    
     return {
         thresholds,
         precision: precisionData,
         recall: recallData,
-        f1: f1Data
+        f1: f1Data,
+        accuracy: accuracyData
     };
 }
 
