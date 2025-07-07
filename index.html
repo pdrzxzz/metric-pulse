@@ -4,7 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MetricPulse - ML Threshold Explorer</title>
+    <title>MetricPulse - ML Metrics Explained</title>
+    <link rel="icon" type="image/png" href="imgs/logo.png">
     <link rel="stylesheet" href="style.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
@@ -29,7 +30,9 @@
                                 <span class="tooltip">
                                     <span class="question-mark">?</span>
                                     <span class="tooltiptext">
-                                        The probability cutoff used to classify predictions as positive (1) or negative (0). Lower thresholds increase recall but decrease precision, while higher thresholds do the opposite.
+                                        The probability cutoff used to classify predictions as positive (1) or negative
+                                        (0). Lower thresholds increase recall but decrease precision, while higher
+                                        thresholds do the opposite.
                                     </span>
                                 </span>
                             </div>
@@ -97,7 +100,8 @@
                                         <span class="tooltip">
                                             <span class="question-mark">?</span>
                                             <span class="tooltiptext">
-                                                The proportion of correct predictions (both true positives and true negatives) out of all predictions.<br><br>
+                                                The proportion of correct predictions (both true positives and true
+                                                negatives) out of all predictions.<br><br>
                                                 Formula:<br>
                                                 Accuracy = (TP + TN) / (TP + TN + FP + FN)
                                             </span>
@@ -111,7 +115,9 @@
                                         <span class="tooltip">
                                             <span class="question-mark">?</span>
                                             <span class="tooltiptext">
-                                                The proportion of true positive predictions out of all positive predictions. Measures how many of the predicted positives were actually correct.<br><br>
+                                                The proportion of true positive predictions out of all positive
+                                                predictions. Measures how many of the predicted positives were actually
+                                                correct.<br><br>
                                                 Formula:<br>
                                                 Precision = TP / (TP + FP)
                                             </span>
@@ -125,7 +131,9 @@
                                         <span class="tooltip">
                                             <span class="question-mark">?</span>
                                             <span class="tooltiptext">
-                                                The proportion of true positive predictions out of all actual positives. Measures how many of the actual positives were correctly identified.<br><br>
+                                                The proportion of true positive predictions out of all actual positives.
+                                                Measures how many of the actual positives were correctly
+                                                identified.<br><br>
                                                 Formula:<br>
                                                 Recall = TP / (TP + FN)
                                             </span>
@@ -139,7 +147,8 @@
                                         <span class="tooltip">
                                             <span class="question-mark">?</span>
                                             <span class="tooltiptext">
-                                                The harmonic mean of precision and recall. Provides a single score that balances both metrics.<br><br>
+                                                The harmonic mean of precision and recall. Provides a single score that
+                                                balances both metrics.<br><br>
                                                 Formula:<br>
                                                 F1 = 2 × (Precision × Recall) / (Precision + Recall)
                                             </span>
